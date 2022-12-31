@@ -1,0 +1,23 @@
+@import "../../style/variables";
+
+.sidebar {
+  width: fit-content;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  .sidebar-switch-org {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .sidebar-dashboard {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .sidebar-main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

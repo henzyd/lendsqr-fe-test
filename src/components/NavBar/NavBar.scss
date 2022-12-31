@@ -1,0 +1,71 @@
+@import "../../style/variables";
+
+.NavBar {
+  width: 100%;
+  display: grid;
+  align-items: center;
+  padding: 1.2rem 1.9rem;
+  justify-content: space-between;
+  grid-template-columns: 1fr 3fr 1fr;
+  box-shadow: 3px 0px 20px 0px #0000000a;
+  * {
+    color: $MainTextColor;
+  }
+  .navbar-logo {
+    width: 7rem;
+  }
+  .nav-search-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    input {
+      padding: 0.75rem;
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+      border: 1px solid $MainTextColor;
+      width: 45%;
+      //   opacity: 0.2;
+      color: $SubTextColor;
+    }
+    input::placeholder {
+      color: $SubTextColor;
+      //   opacity: 0.7;
+    }
+    button {
+      all: unset;
+      background-color: $PrimaryColor;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      padding: 0.86rem 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+  }
+  .navbar-other {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    > p {
+      text-decoration: underline;
+      padding-right: 10px;
+    }
+    div {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      figure {
+        width: 2.8rem;
+        height: 2.8rem;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}
