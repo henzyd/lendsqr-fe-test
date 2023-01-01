@@ -1,12 +1,13 @@
 import React from "react";
-import { NavBar, SideBar, DashboardLayout } from "../../components";
-import "./Dashboard.scss";
+import { Outlet } from "react-router-dom";
+import { NavBar, DashboardLayout } from "../../components";
+import "./Dashboard.style.scss";
 
 const Dashboard = () => {
   return (
     <div className="Dashboard">
       <NavBar />
-      <DashboardLayout mainContent={<SideBar />} />
+      <DashboardLayout mainContent={<Outlet />} />
     </div>
   );
 };

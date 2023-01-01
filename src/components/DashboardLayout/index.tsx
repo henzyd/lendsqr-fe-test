@@ -1,15 +1,16 @@
 import React from "react";
 import SideBar from "../SideBar";
+import "./DashboardLayout.style.scss";
 
 type DashboardLayoutProps = {
-  mainContent: JSX.Element;
+  mainContent: React.ReactElement;
 };
 
 const DashboardLayout = (props: DashboardLayoutProps) => {
   return (
-    <div>
+    <div className="dashboard-layout">
       <SideBar />
-      {props.mainContent}
+      <div className="dashboard-outlet-container">{props.mainContent}</div>
     </div>
   );
 };

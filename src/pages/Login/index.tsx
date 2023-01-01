@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Login.scss";
+import "./Login.style.scss";
 import Logo from "../../assets/icons/logo.svg";
 import LoginIMG from "../../assets/images/pablo-sign-in 1.png";
 
@@ -47,7 +47,7 @@ const Login = () => {
       setSmallTextEmail("hidden");
     } else {
       console.log(email, password);
-      navigate("/");
+      navigate("/users");
     }
   }
 

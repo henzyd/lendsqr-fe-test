@@ -1,82 +1,56 @@
-import React from "react";
-import "./Sidebar.scss";
+import React, { useState } from "react";
+import "./Sidebar.style.scss";
 
 //? Icons
-import CustomersUserIcon from "../../assets/icons/sidebar/customers-user-icon.svg";
+import ArrowDown from "../../assets/icons/sidebar/sidebar-arrow-down.svg";
+import SwitchOriganization from "../../assets/icons/sidebar/switch-organization-icon.svg";
+import DashboardIcon from "../../assets/icons/sidebar/dashboard-icon.svg";
+import LogoutIcon from "../../assets/icons/sidebar/logout-icon.svg";
+
+//? Data
+import sideBarData from "./data";
 
 const SideBar = () => {
-  const sideBarData = [
-    {
-      "section-name": "CUSTOMERS",
-      contents: [
-        {
-          name: "Users",
-          icon: CustomersUserIcon,
-        },
-        {
-          name: "Guarantors",
-          icon: CustomersUserIcon,
-        },
-        {
-          name: "Loans",
-          icon: CustomersUserIcon,
-        },
-        {
-          name: "Decision Models",
-          icon: CustomersUserIcon,
-        },
-        {
-          name: "Savings",
-          icon: CustomersUserIcon,
-        },
-      ],
-    },
-    {
-      "section-name": "BUSINESSES",
-      contents: [
-        {
-          name: "Organizations",
-          icon: CustomersUserIcon,
-        },
-        {
-          name: "Loan Products",
-          icon: CustomersUserIcon,
-        },
-        {
-          name: "Savings Products",
-          icon: CustomersUserIcon,
-        },
-        {
-          name: "Fees and Charges",
-          icon: CustomersUserIcon,
-        },
-        {
-          name: "Transactions",
-          icon: CustomersUserIcon,
-        },
-      ],
-    },
-  ];
+  const [activeItem, setActiveItem] = useState("Users");
+
+  function changeActiveItemHanler(item: string) {
+    setActiveItem(item);
+  }
+
   return (
     <div className="sidebar">
       <div className="sidebar-switch-org">
-        <img src="" alt="switch-organization-icon" />
+        <img src={SwitchOriganization} alt="switch-organization-icon" />
         <p>Switch Organization</p>
-        <img src="" alt="sidebar-arrow-down" />
+        <img src={ArrowDown} alt="sidebar-arrow-down" />
       </div>
       <div className="sidebar-dashboard">
-        <img src="" alt="dashboard-icon" />
+        <img src={DashboardIcon} alt="dashboard-icon" />
         <p>Dashboard</p>
       </div>
       <div className="sidebar-main-container">
         {sideBarData.map((item) => {
           return (
-            <div key={item["section-name"]}>
+            <div
+              className="sidebar-main-container-inside"
+              key={item["section-name"]}
+            >
               <h3>{item["section-name"]}</h3>
-              <div>
+              <div className="sidebar-main-container-outer">
                 {item.contents.map((item) => {
                   return (
-                    <div key={item.name}>
+                    <div
+                      className={`sidebar-main-container-inner ${
+                        activeItem === item.name
+                          ? "sidebar-main-container-inner-active-state"
+                          : ""
+                      }`}
+                      key={item.name}
+                      onClick={() => {
+                        changeActiveItemHanler(item.name);
+                      }}
+                    >
+                      <div className="sidebar-main-container-inner-bg"></div>
                       <img
                         src={item.icon}
                         alt={`sidebar-${item.name
@@ -94,7 +68,7 @@ const SideBar = () => {
       </div>
       <div className="sidebar-footer">
         <div>
-          <img src="" alt="logout-icon" />
+          <img src={LogoutIcon} alt="logout-icon" />
           <p>Logout</p>
         </div>
         <p>v1.2.0</p>
