@@ -1,0 +1,13 @@
+@import "../../style/variables";
+
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 3.8fr;
+  align-items: flex-start;
+  width: 100%;
+  justify-content: flex-start;
+  gap: 2rem;
+  .dashboard-outlet-container {
+    padding: 2rem 0;
+  }
+}

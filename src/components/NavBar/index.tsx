@@ -1,5 +1,5 @@
 import React from "react";
-import "./NavBar.scss";
+import "./NavBar.style.scss";
 
 // ? Icons
 import Logo from "../../assets/icons/logo.svg";

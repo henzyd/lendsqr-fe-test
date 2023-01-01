@@ -1,0 +1,117 @@
+@import "../../style/variables";
+
+.sidebar {
+  width: fit-content;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: #fff;
+  box-shadow: 0px 5px 20px 0px #0000000a;
+  padding: 1.4rem 0 1.4rem 0;
+  width: 100%;
+  gap: 2rem;
+  color: $MainTextColor;
+  font-weight: 400;
+  font-size: 1rem;
+  .sidebar-switch-org {
+    padding-left: 1.8rem;
+    padding-bottom: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .sidebar-dashboard {
+    padding-left: 1.8rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    p {
+      font-size: 1rem;
+    }
+  }
+  .sidebar-main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 40px;
+    .sidebar-main-container-inside {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      width: 100%;
+      h3 {
+        font-weight: 500;
+        font-size: 0.7rem;
+        padding-left: 1.8rem;
+        color: $SubTextColor;
+      }
+      .sidebar-main-container-outer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        width: 100%;
+        .sidebar-main-container-inner {
+          position: relative;
+          .sidebar-main-container-inner-bg {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 1;
+            left: 0;
+          }
+          display: flex;
+          align-items: center;
+          padding: 12px 0;
+          gap: 10px;
+          padding-left: 1.8rem;
+          width: 100%;
+          cursor: pointer;
+          p {
+            font-size: 1rem;
+            opacity: 0.6;
+            position: relative;
+            z-index: 2;
+          }
+          img {
+            position: relative;
+            opacity: 0.6;
+            z-index: 2;
+          }
+        }
+        .sidebar-main-container-inner-active-state {
+          .sidebar-main-container-inner-bg {
+            background-color: $PrimaryColor;
+            filter: opacity(0.06);
+          }
+          border-left: 3px solid $PrimaryColor;
+          p {
+            opacity: 1;
+          }
+          img {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+  .sidebar-footer {
+    padding-left: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    p {
+      font-size: 0.8rem;
+    }
+  }
+}
