@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import MenuIcon from "../../../../assets/icons/users-page/menu-icon.svg";
 import TableFilterIcon from "../../../../assets/icons/users-page/table-filter-icon.svg";
@@ -13,6 +14,7 @@ const UserTable = (props: UserTableProps) => {
   const [userPathID, setUserPathID] = useState<number | null>(null);
   const [displayDropdown, setDisplayDropdown] = useState("none");
   const [itemDisplayed, setItemDisplayed] = useState<number | null>(null);
+  const navigate = useNavigate();
 
   const tableHeadData = [
     {
@@ -40,8 +42,11 @@ const UserTable = (props: UserTableProps) => {
 
   function userPathHandler(id: number) {
     setUserPathID(id);
+    console.log(id);
+
     const x = new Date();
     console.log(x);
+    navigate(`${id}`);
   }
 
   function DisplayMenuHandler(id: number) {
