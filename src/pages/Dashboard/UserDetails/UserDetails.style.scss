@@ -1,0 +1,207 @@
+@import "../../../style/variables";
+
+.user-details-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  .going-back {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    p {
+      color: $SubTextColor;
+      font-size: 1rem;
+    }
+  }
+  .user-details-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h1 {
+      font-size: 2rem;
+      font-weight: 500;
+      color: $MainTextColor;
+    }
+    div {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      button {
+        all: unset;
+        padding: 10px 16px;
+        letter-spacing: 0.1em;
+        font-size: 0.8rem;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      button:nth-child(1) {
+        border: 1px solid $DashBoard_BlacklistedStatusColor;
+        border-radius: 8px;
+        color: $DashBoard_BlacklistedStatusColor;
+      }
+      button:nth-child(2) {
+        border: 1px solid $PrimaryColor;
+        border-radius: 8px;
+        color: $PrimaryColor;
+      }
+    }
+    margin-bottom: 2rem;
+  }
+
+  .user-details-main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.6rem;
+    padding-bottom: 0;
+    box-shadow: 3px 5px 20px 0px #0000000a;
+    border: 1px solid #213f7d0f;
+    border-radius: 4px;
+    gap: 3rem;
+    .user-details-main-top {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      figure {
+        position: relative;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        div {
+          position: absolute;
+          z-index: 1;
+          background-color: $MainTextColor;
+          opacity: 0.16;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          border-radius: 50%;
+        }
+        img {
+          width: 35px;
+          position: relative;
+          z-index: 2;
+        }
+      }
+      .full-name {
+        border-right: 1px solid $SubTextColor;
+        padding-right: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        h2 {
+          color: $MainTextColor;
+          font-size: 1.4rem;
+          font-weight: 500;
+        }
+        p {
+          color: $SubTextColor;
+          font-size: 1rem;
+          font-weight: 400;
+        }
+      }
+      .users-tier {
+        border-right: 1px solid $SubTextColor;
+        padding-right: 1.5rem;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+        p {
+          font-weight: 500;
+          font-size: 1rem;
+          color: $SubTextColor;
+        }
+        div {
+          display: flex;
+          align-items: center;
+          gap: 2px;
+          img {
+            width: 15px;
+          }
+        }
+      }
+      .amount-in-bank {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        h2 {
+          color: $MainTextColor;
+          font-size: 1.4rem;
+          font-weight: 500;
+        }
+        p {
+          color: $SubTextColor;
+          font-size: 1rem;
+          font-weight: 400;
+        }
+      }
+    }
+    .user-details-main-bottom {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      p {
+        padding: 0 5px;
+        padding-bottom: 0.6rem;
+        font-family: $Font_SFCompactText;
+      }
+      p:nth-child(1) {
+        font-family: $Font_WorkSans;
+      }
+    }
+  }
+  .general-details {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1.4rem 1.4rem;
+    border: 1px solid #213f7d0f;
+    box-shadow: 3px 5px 20px 0px #0000000a;
+    border-radius: 4px;
+    gap: 3rem;
+    span {
+      background-color: $MainTextColor;
+      height: 1px;
+      width: 100%;
+      opacity: 0.1;
+    }
+    .general {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      // padding-bottom: 3rem;
+      p {
+        color: $SubTextColor;
+        font-size: 1rem;
+        font-weight: 400;
+      }
+      h3 {
+        color: $MainTextColor;
+        font-size: 1rem;
+        font-weight: 500;
+      }
+      .general-details-outside-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        .general-details-inside-container {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          p:nth-child(1) {
+            font-size: 0.7rem;
+          }
+          p:nth-child(2) {
+            color: $SubTextColor;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}

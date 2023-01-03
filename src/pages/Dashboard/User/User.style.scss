@@ -5,7 +5,7 @@
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  padding-right: 1.9rem;
+  // padding-right: 1.9rem;
   gap: 1.4rem;
   * {
     font-family: $Font_WorkSans;
@@ -61,45 +61,49 @@
       }
     }
   }
-  .user-table {
-    width: 100%;
-    // border-collapse: collapse;
-    border: 1px solid #213f7d0f;
-    box-shadow: 3px 5px 20px 0px #0000000a;
-    border-radius: 4px;
-    background-color: #fff;
-    padding: 1.2rem;
-    gap: 40px;
-    .user-table-header {
-      font-size: 0.75rem;
-      font-weight: 600;
-      line-height: 14.08px;
-      th {
-        color: $SubTextColor;
-        // display: flex;
-        // align-items: flex-start;
-        // flex-direction: ;
-        align-items: flex-start;
-        // width: 100%;
-        div {
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          img {
-            width: 15px;
+  .table-container {
+    // min-width: 1034px;
+    // width: 100%;
+    overflow-x: scroll;
+
+    .user-table {
+      width: 100%;
+      border: 1px solid #213f7d0f;
+      box-shadow: 3px 5px 20px 0px #0000000a;
+      border-radius: 4px;
+      background-color: #fff;
+      padding: 1.2rem;
+      gap: 40px;
+      // border-spacing: 20px 0;
+      .user-table-header {
+        font-size: 0.75rem;
+        font-weight: 600;
+        line-height: 14.08px;
+        th {
+          color: $SubTextColor;
+          align-items: flex-start;
+          div {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            img {
+              width: 15px;
+            }
           }
         }
       }
-    }
-    .user-table-body {
-      td {
-        border-bottom: 1px solid #213f7d1a;
-        padding: 1rem 0;
-        color: $SubTextColor;
+      .user-table-body {
+        td {
+          border-bottom: 1px solid #213f7d1a;
+          padding: 1rem 0;
+          color: $SubTextColor;
+          padding-right: 20px;
+        }
+        font-size: 0.77rem;
+        // font-size: 0.875rem;
+        font-weight: 400;
+        line-height: 16.42px;
       }
-      font-size: 0.875rem;
-      font-weight: 400;
-      line-height: 16.42px;
     }
   }
 }
