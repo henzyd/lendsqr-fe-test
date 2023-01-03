@@ -8,65 +8,14 @@ import ActiveUserIcon from "../../../assets/icons/users-page/active-users-icon.s
 import UsersWithLoansIcon from "../../../assets/icons/users-page/users-with-loans-icon.svg";
 import UsersWithSavingsIcon from "../../../assets/icons/users-page/users-with-savings-icon.svg";
 
-import MenuIcon from "../../../assets/icons/users-page/menu-icon.svg";
-import TableFilterIcon from "../../../assets/icons/users-page/table-filter-icon.svg";
+import { userDataArrType } from "../UserDataTypes.types";
 
-type Education = {
-  level: string;
-  employmentStatus: string;
-  sector: string;
-  duration: string;
-  officeEmail: string;
-  monthlyIncome: string[];
-  loanRepayment: string;
-};
-
-type Guarantor = {
-  firstName: string;
-  lastName: string;
-  phoneNumber: string;
-  gender: string;
-  address: string;
-};
-
-type Profile = {
-  firstName: string;
-  lastName: string;
-  phoneNumber: string;
-  avatar: string;
-  gender: string;
-  bvn: string;
-  address: string;
-  currency: string;
-};
-
-type Socials = {
-  facebook: string;
-  instagram: string;
-  twitter: string;
-};
-
-type userDataArrType = [
-  {
-    accountBalance: string;
-    accountNumber: string;
-    createdAt: string;
-    education: Education;
-    email: string;
-    guarantor: Guarantor;
-    id: string;
-    lastActiveDate: string;
-    orgName: string;
-    phoneNumber: string;
-    profile: Profile;
-    socials: Socials;
-    userName: string;
-  }
-];
+// import { DataTable } from "primereact/datatable";
+// import { Column } from "primereact/column";
+import UserTable from "./components/UserTable";
 
 const User = () => {
   const [userDataArr, setUserDataArr] = useState<userDataArrType | []>([]);
-  const [userPathID, setUserPathID] = useState<number | null>(null);
   const cardData = [
     {
       img: {
@@ -106,30 +55,6 @@ const User = () => {
     },
   ];
 
-  const tableHeadData = [
-    {
-      name: "ORGANIZATION",
-    },
-    {
-      name: "USERNAME",
-    },
-    {
-      name: "EMAIL",
-    },
-    {
-      name: "PHONE NUMBER",
-    },
-    {
-      name: "DATE JOINED",
-    },
-    {
-      name: "STATUS",
-    },
-    {
-      name: "MENU",
-    },
-  ];
-
   useEffect(() => {
     fetch("https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users")
       .then((response) =>
@@ -156,10 +81,6 @@ const User = () => {
     // *"createdAt": "2072-12-27T03:44:22.522Z", NOTE: this is the date joined
   });
 
-  function userPathHandler(id: number) {
-    setUserPathID(id);
-  }
-
   return (
     <div className="UserPage">
       <h1>Users</h1>
@@ -178,48 +99,27 @@ const User = () => {
         ))}
       </div>
 
-      <div className="table-container">
-        <table className="user-table">
-          <tbody>
-            <tr className="user-table-header">
-              {tableHeadData.map((item) =>
-                item.name === "MENU" ? (
-                  <th
-                    key={item.name}
-                    style={{ visibility: "hidden", padding: "0 12px" }}
-                  >
-                    {item.name}
-                  </th>
-                ) : (
-                  <th key={item.name}>
-                    <div>
-                      {item.name}
-                      <img src={TableFilterIcon} alt="table-filter-icon" />
-                    </div>
-                  </th>
-                )
-              )}
-            </tr>
-            {userDataArr.map((item) => (
-              <tr
-                className="user-table-body"
-                key={item.id}
-                onClick={() => userPathHandler(Number(item.id))}
-              >
-                <td>{item.orgName}</td>
-                <td>{item.userName}</td>
-                <td>{item.email}</td>
-                <td>{item.phoneNumber}</td>
-                <td>{item.createdAt}</td>
-                <td colSpan={2}>Inactive</td>
-                <td>
-                  <img src={MenuIcon} alt="menu-icon" />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <UserTable userDataArr={userDataArr} />
+      {/* <DataTable
+          value={userDataArr}
+          header="Scroll"
+          responsiveLayout="scroll"
+        >
+          <Column field="code" header="Code" />
+          <Column field="name" header="Name" />
+          <Column field="category" header="Category" />
+          <Column field="quantity" header="Quantity" />
+          <Column
+            field="inventoryStatus"
+            header="Status"
+            // body={statusTemplate}
+          />
+          <Column
+            field="rating"
+            header="Rating"
+            // body={ratingTemplate}
+          />
+        </DataTable> */}
     </div>
   );
 };

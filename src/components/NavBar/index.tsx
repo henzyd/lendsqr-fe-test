@@ -6,6 +6,7 @@ import Logo from "../../assets/icons/logo.svg";
 import SearchIcon from "../../assets/icons/search-icon.svg";
 import NotificationIcon from "../../assets/icons/notification-icon.svg";
 import ArrowDown from "../../assets/icons/arrow-down.svg";
+import { BiMenuAltLeft } from "react-icons/bi";
 
 // ?Images
 import UserProfileIMG from "../../assets/images/user-profile-img.png";
@@ -30,6 +31,9 @@ const NavBar = () => {
           <p>Adedeji</p>
           <img src={ArrowDown} alt="arrow-down" />
         </div>
+      </div>
+      <div className="navbar-mobile-menu">
+        <BiMenuAltLeft size={28} />
       </div>
     </div>
   );
