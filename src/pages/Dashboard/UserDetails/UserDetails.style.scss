@@ -5,10 +5,19 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+  @media (max-width: $TabletAnBelow) {
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+
+  padding-top: 1rem;
+  padding-bottom: 3rem;
   .going-back {
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-bottom: 1rem;
+    cursor: pointer;
     p {
       color: $SubTextColor;
       font-size: 1rem;
@@ -64,6 +73,11 @@
       display: flex;
       align-items: center;
       gap: 1.5rem;
+      span {
+        width: 1px;
+        background-color: $SubTextColor;
+        height: 100%;
+      }
       figure {
         position: relative;
         padding: 1rem;
@@ -87,9 +101,27 @@
           z-index: 2;
         }
       }
+      .profile-photo {
+        width: 100px;
+        height: 100px;
+        img {
+          border-radius: 50%;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        @media (min-width: 990px) and (max-width: 1126px) {
+          width: 80px;
+          height: 80px;
+          img {
+            width: 80px;
+            height: 80px;
+          }
+        }
+      }
       .full-name {
-        border-right: 1px solid $SubTextColor;
-        padding-right: 1.5rem;
+        // border-right: 1px solid $SubTextColor;
+        // padding-right: 1.5rem;
         display: flex;
         flex-direction: column;
         gap: 8px;
@@ -105,8 +137,8 @@
         }
       }
       .users-tier {
-        border-right: 1px solid $SubTextColor;
-        padding-right: 1.5rem;
+        // border-right: 1px solid $SubTextColor;
+        // padding-right: 1.5rem;
         display: flex;
         align-items: flex-start;
         flex-direction: column;
@@ -160,11 +192,11 @@
     margin-top: 1.5rem;
     display: flex;
     flex-direction: column;
-    padding: 1.4rem 1.4rem;
+    padding: 2.2rem 1.4rem;
     border: 1px solid #213f7d0f;
     box-shadow: 3px 5px 20px 0px #0000000a;
     border-radius: 4px;
-    gap: 3rem;
+    gap: 2rem;
     span {
       background-color: $MainTextColor;
       height: 1px;
@@ -174,11 +206,11 @@
     .general {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 2rem;
       // padding-bottom: 3rem;
       p {
         color: $SubTextColor;
-        font-size: 1rem;
+        font-size: 0.9rem;
         font-weight: 400;
       }
       h3 {
@@ -188,7 +220,19 @@
       }
       .general-details-outside-container {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        gap: 4px;
+        row-gap: 2rem;
+        column-gap: 2rem;
+        @media (min-width: 990px) and (max-width: 1126px) {
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+        @media (max-width: 770px) {
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+        @media (max-width: 660px) {
+          grid-template-columns: 1fr 1fr;
+        }
         .general-details-inside-container {
           display: flex;
           flex-direction: column;
@@ -200,6 +244,20 @@
             color: $SubTextColor;
             font-weight: 500;
           }
+          .general-details-top {
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+    .general-details-education-and-employment {
+      .general-details-outside-container {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        @media (max-width: 770px) {
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+        @media (max-width: 660px) {
+          grid-template-columns: 1fr 1fr;
         }
       }
     }
