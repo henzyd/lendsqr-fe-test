@@ -6,7 +6,7 @@ import UserDetailsBackIcon from "../../../assets/icons/user-details-back-icon.sv
 import UserDetailsProfileIcon from "../../../assets/icons/user-detail-profile-icon.svg";
 import StarActiveIcon from "../../../assets/icons/star-active.svg";
 import StarInactiveIcon from "../../../assets/icons/star-inactive.svg";
-import { UserDataType, userDataArrType } from "../UserDataTypes.types";
+import { userDataArrType } from "../UserDataTypes.types";
 
 const UserDetails = () => {
   const { id } = useParams();
