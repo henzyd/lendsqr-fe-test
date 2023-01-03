@@ -1,5 +1,9 @@
 @import "../../style/variables";
 
+$FirstQuery: 900px;
+$SecondQuery: 540px;
+$ThirdQuery: 400px;
+
 .NavBar {
   width: 100%;
   display: grid;
@@ -9,6 +13,35 @@
   grid-template-columns: 1fr 3fr 1fr;
   box-shadow: 3px 0px 20px 0px #0000000a;
   background-color: #fff;
+  position: relative;
+  @media (max-width: $ThirdQuery) {
+    padding: 1.2rem 1.4rem;
+  }
+  @media (max-width: $FirstQuery) {
+    grid-template-columns: 1fr 1fr;
+  }
+  .navbar-mobile-menu {
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: #fff;
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    box-shadow: 3px 0px 20px 0px #0000000a;
+    padding: 4px;
+    border-bottom-right-radius: 4px;
+    svg {
+      cursor: pointer;
+    }
+  }
+  @media (min-width: 990px) {
+    .navbar-mobile-menu {
+      display: none;
+    }
+  }
+
   * {
     color: $MainTextColor;
   }
@@ -19,6 +52,9 @@
     display: flex;
     align-items: center;
     width: 100%;
+    @media (max-width: $FirstQuery) {
+      display: none;
+    }
     input {
       padding: 0.75rem;
       border-top-left-radius: 8px;
@@ -49,17 +85,41 @@
     align-items: center;
     justify-content: space-between;
     gap: 30px;
+    @media (max-width: $FirstQuery) {
+      justify-content: flex-end;
+    }
     > p {
       text-decoration: underline;
       padding-right: 10px;
+
+      @media (max-width: $SecondQuery) {
+        display: none;
+      }
+    }
+    img {
+      @media (max-width: $SecondQuery) {
+        display: none;
+      }
     }
     div {
       display: flex;
       align-items: center;
       gap: 8px;
+      img {
+        display: block;
+      }
+      p {
+        @media (max-width: $ThirdQuery) {
+          display: none;
+        }
+      }
       figure {
         width: 2.8rem;
         height: 2.8rem;
+        @media (max-width: $ThirdQuery) {
+          width: 2rem;
+          height: 2rem;
+        }
         img {
           width: 100%;
           height: 100%;

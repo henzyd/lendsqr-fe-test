@@ -8,6 +8,16 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  @media (max-width: 530px) {
+    padding: 0 1.5rem;
+  }
+  @media (max-width: 320px) {
+    padding: 0 1rem;
+  }
+  @media (min-width: 700px) and (max-width: $TabletAnBelow) {
+    padding: 0 6rem;
+  }
+
   * {
     font-family: $Font_AvenirNext;
   }
@@ -19,6 +29,9 @@
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    @media (max-width: $TabletAnBelow) {
+      grid-template-columns: 1fr;
+    }
     .login-left-container {
       width: 100%;
       display: flex;
@@ -27,6 +40,9 @@
       padding: 1.5rem;
       img {
         width: 100%;
+      }
+      @media (max-width: $TabletAnBelow) {
+        display: none;
       }
     }
     .login-right-container {
@@ -37,6 +53,7 @@
       justify-content: center;
       flex-direction: column;
       gap: 4rem;
+
       .login-form-title {
         align-self: flex-start;
         display: flex;
