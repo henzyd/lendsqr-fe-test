@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import UserCards from "./components/UserCards";
 import "./User.style.scss";
 
@@ -8,14 +8,16 @@ import ActiveUserIcon from "../../../assets/icons/users-page/active-users-icon.s
 import UsersWithLoansIcon from "../../../assets/icons/users-page/users-with-loans-icon.svg";
 import UsersWithSavingsIcon from "../../../assets/icons/users-page/users-with-savings-icon.svg";
 
-import { userDataArrType } from "../UserDataTypes.types";
+// import { userDataArrType } from "../UserDataTypes.types";
 
-// import { DataTable } from "primereact/datatable";
-// import { Column } from "primereact/column";
-import UserTable from "./components/UserTable";
+import Paginate from "./components/Paginate";
+import { AppContext } from "../../../context/AppProvider";
+
+// type apiDataType = userDataArrType | [];
 
 const User = () => {
-  const [userDataArr, setUserDataArr] = useState<userDataArrType | []>([]);
+  // const [userDataArr, setUserDataArr] = useState<apiDataType>([]);
+  const userDataArr = useContext(AppContext);
   const cardData = [
     {
       img: {
@@ -55,31 +57,36 @@ const User = () => {
     },
   ];
 
-  useEffect(() => {
-    fetch("https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users")
-      .then((response) =>
-        response.json().then(
-          (data) => setUserDataArr(data)
-          // setUserDataArr((data) => {
-          //   // let changedData: userDataArrType | []; //! FIXME
-          //   // for (let i = 0; i < data.length; i++) {
-          //   //   if (!(i >= 7)) {
-          //   //     changedData.push();
-          //   //   }
-          //   // }
-          //   // console.log(changedData);
-          //   return data;
-          // })
-        )
-      )
-      .catch((error) => console.log(error));
+  // useEffect(() => {
+  //   fetch("https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users")
+  //     .then((response) =>
+  //       response.json().then(
+  //         (data) => setUserDataArr(data)
+  //         // setUserDataArr((data) => {
+  //         //   // let changedData: userDataArrType | []; //! FIXME
+  //         //   // for (let i = 0; i < data.length; i++) {
+  //         //   //   if (!(i >= 7)) {
+  //         //   //     changedData.push();
+  //         //   //   }
+  //         //   // }
+  //         //   // console.log(changedData);
+  //         //   return data;
+  //         // })
+  //       )
+  //     )
+  //     .catch((error) => console.log(error));
 
-    // *"orgName": "labore-dolor-et",
-    // *"userName": "Wilburn.Rice",
-    // *"email": "Maverick.Hyatt83@gmail.com",
-    // *"phoneNumber": "(553) 208-0727 x31321",
-    // *"createdAt": "2072-12-27T03:44:22.522Z", NOTE: this is the date joined
-  });
+  //   // *"orgName": "labore-dolor-et",
+  //   // *"userName": "Wilburn.Rice",
+  //   // *"email": "Maverick.Hyatt83@gmail.com",
+  //   // *"phoneNumber": "(553) 208-0727 x31321",
+  //   // *"createdAt": "2072-12-27T03:44:22.522Z", NOTE: this is the date joined
+  // });
+
+  // function currentItemHandler(data: apiDataType) {
+  //   console.log(data);
+  //   setCurrentItems(data);
+  // }
 
   return (
     <div className="UserPage">
@@ -98,28 +105,8 @@ const User = () => {
           />
         ))}
       </div>
-
-      <UserTable userDataArr={userDataArr} />
-      {/* <DataTable
-          value={userDataArr}
-          header="Scroll"
-          responsiveLayout="scroll"
-        >
-          <Column field="code" header="Code" />
-          <Column field="name" header="Name" />
-          <Column field="category" header="Category" />
-          <Column field="quantity" header="Quantity" />
-          <Column
-            field="inventoryStatus"
-            header="Status"
-            // body={statusTemplate}
-          />
-          <Column
-            field="rating"
-            header="Rating"
-            // body={ratingTemplate}
-          />
-        </DataTable> */}
+      {/* <Test userDataArr={userDataArr} /> */}
+      <Paginate userDataArr={userDataArr} />
     </div>
   );
 };

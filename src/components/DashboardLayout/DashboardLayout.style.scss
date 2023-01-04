@@ -15,6 +15,7 @@
   }
 
   .dashboard-outlet-container {
+    width: 100%;
     padding: 2rem 2rem 2rem 0;
     @media (max-width: $TabletAnBelow) {
       display: flex;

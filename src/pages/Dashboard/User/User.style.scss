@@ -4,9 +4,10 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 100%;
+  // width: 90vw;
   // padding-right: 1.9rem;
   gap: 1.4rem;
+  padding-bottom: 3rem;
   @media (max-width: $TabletAnBelow) {
     padding: 2rem 5%;
   }
@@ -34,6 +35,10 @@
     }
     @media (max-width: $MobileAnBelow) {
       grid-template-columns: 1fr;
+    }
+
+    @media (max-width: 520px) {
+      padding: 0 0rem;
     }
 
     .sub-cards-container {
@@ -73,6 +78,7 @@
       }
       h2 {
         color: $MainTextColor;
+        font-size: 1.4rem;
       }
     }
   }
@@ -82,9 +88,12 @@
     // background-color: red;
     padding: 1.2rem;
 
-    max-width: 100%;
+    // max-width: 100%;
+    width: 70vw;
+    margin: 0 auto;
     @media (min-width: $TabletAnBelow) {
-      min-width: 800px;
+      // width: 800px;
+      margin: 0 auto;
     }
     @media (min-width: 1500px) {
       width: 100%;
@@ -101,7 +110,7 @@
     border: 1px solid #213f7d0f;
     border-radius: 4px;
     // margin: 30px auto;
-    overflow-x: scroll;
+    overflow-x: auto;
 
     .user-table {
       width: 100%;
@@ -121,15 +130,37 @@
             color: $SubTextColor;
             align-items: flex-start;
             padding-right: 2rem;
+            position: relative;
             div {
               display: flex;
               align-items: center;
               gap: 6px;
-              // p{
-              //   font-size: 0;
-              // }
+              p {
+                font-size: 0.75rem;
+              }
               img {
                 width: 15px;
+              }
+            }
+            .Filter-container {
+              right: -105px;
+              top: 40px;
+              display: flex;
+              align-items: flex-start;
+              flex-direction: column;
+              gap: 20px;
+              border: 1px solid #545f7d24;
+              box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+              border-radius: 4px;
+              background-color: #fff;
+              width: 300px;
+              position: absolute;
+              z-index: 4;
+              .input-filter-all {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
               }
             }
           }
@@ -171,6 +202,34 @@
           // font-size: 0.875rem;
           font-weight: 400;
           line-height: 16.42px;
+        }
+      }
+    }
+  }
+  .dashboard-user-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    .showing-conatainer {
+      p {
+        font-size: 1rem;
+        font-weight: 400;
+        color: $SubTextColor;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        span {
+          color: $MainTextColor;
+          padding: 6px 10px;
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          cursor: pointer;
+          border-radius: 4px;
+          background-color: #213f7d1a;
+          font-size: 0.9rem;
+          font-weight: 500;
         }
       }
     }
