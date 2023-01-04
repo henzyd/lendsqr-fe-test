@@ -32,21 +32,16 @@ const Login = () => {
 
   function formDataHandler(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log("eenjjeijn");
     if (!checkEmail() && !password) {
-      console.log("no email or password");
       setSmallTextEmail("visible");
       setSmallTextPassword("visible");
     } else if (!checkEmail()) {
-      console.log("no email");
       setSmallTextEmail("visible");
       setSmallTextPassword("hidden");
     } else if (!password) {
-      console.log("no password");
       setSmallTextPassword("visible");
       setSmallTextEmail("hidden");
     } else {
-      console.log(email, password);
       navigate("/users");
     }
   }

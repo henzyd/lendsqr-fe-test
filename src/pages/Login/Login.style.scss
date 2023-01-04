@@ -78,7 +78,7 @@
         gap: 1rem;
         p {
           margin-bottom: 1.8rem;
-          font-weight: 600;
+          font-weight: 500;
           color: $PrimaryColor;
           letter-spacing: 0.1em;
           line-height: 16px;
@@ -156,6 +156,7 @@
           letter-spacing: 0.1em;
           text-transform: uppercase;
           line-height: 19px;
+          font-size: 1rem;
         }
       }
       @media screen and (max-width: 1070px) {

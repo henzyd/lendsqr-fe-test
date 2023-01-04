@@ -52,10 +52,12 @@ $ThirdQuery: 400px;
     display: flex;
     align-items: center;
     width: 100%;
+    height: fit-content;
     @media (max-width: $FirstQuery) {
       display: none;
     }
     input {
+      all: unset;
       padding: 0.75rem;
       border-top-left-radius: 8px;
       border-bottom-left-radius: 8px;
@@ -66,7 +68,6 @@ $ThirdQuery: 400px;
     }
     input::placeholder {
       color: $SubTextColor;
-      //   opacity: 0.7;
     }
     button {
       all: unset;
@@ -78,6 +79,7 @@ $ThirdQuery: 400px;
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      height: 100%;
     }
   }
   .navbar-other {
@@ -91,6 +93,7 @@ $ThirdQuery: 400px;
     > p {
       text-decoration: underline;
       padding-right: 10px;
+      font-size: 1rem;
 
       @media (max-width: $SecondQuery) {
         display: none;
@@ -109,6 +112,7 @@ $ThirdQuery: 400px;
         display: block;
       }
       p {
+        font-size: 1rem;
         @media (max-width: $ThirdQuery) {
           display: none;
         }

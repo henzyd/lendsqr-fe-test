@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./NavBar.style.scss";
 
 // ? Icons
@@ -10,14 +10,36 @@ import { BiMenuAltLeft } from "react-icons/bi";
 
 // ?Images
 import UserProfileIMG from "../../assets/images/user-profile-img.png";
+import { Link } from "react-router-dom";
 
-const NavBar = () => {
+type NavBarProps = {
+  showMenuHandler: Function;
+};
+
+const NavBar = (props: NavBarProps) => {
+  const [inputValue, setInputValue] = useState("");
+  function seacrhHandler(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+    e.preventDefault();
+    setInputValue("");
+  }
   return (
     <div className="NavBar">
-      <img src={Logo} alt="Logo" className="navbar-logo" />
+      <Link to={"/"} className="navbar-logo">
+        <img src={Logo} alt="Logo" />
+      </Link>
       <form className="nav-search-bar" method="get">
-        <input type="text" placeholder="Search for anything" />
-        <button type="submit">
+        <input
+          type="text"
+          placeholder="Search for anything"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+        />
+        <button
+          type="submit"
+          onClick={(e) => {
+            return seacrhHandler(e);
+          }}
+        >
           <img src={SearchIcon} alt="dashboard-search-bar-icon" />
         </button>
       </form>
@@ -32,7 +54,7 @@ const NavBar = () => {
           <img src={ArrowDown} alt="arrow-down" />
         </div>
       </div>
-      <div className="navbar-mobile-menu">
+      <div className="navbar-mobile-menu" onClick={() => props.showMenuHandler}>
         <BiMenuAltLeft size={28} />
       </div>
     </div>

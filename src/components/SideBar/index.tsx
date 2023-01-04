@@ -9,16 +9,31 @@ import LogoutIcon from "../../assets/icons/sidebar/logout-icon.svg";
 
 //? Data
 import sideBarData from "./data";
+import { useNavigate } from "react-router-dom";
 
-const SideBar = () => {
+type SidebarProps = {
+  showMenu: Boolean;
+};
+
+const SideBar = (props: SidebarProps) => {
   const [activeItem, setActiveItem] = useState("Users");
+  const navigate = useNavigate();
 
   function changeActiveItemHanler(item: string) {
+    const path = item.toLocaleLowerCase().replace(" ", "-");
+    navigate(`/${path}`);
     setActiveItem(item);
+    // if (path === "users") {
+    //   navigate(`/${path}`);
+    //   setActiveItem(item);
+    // } else {
+    // }
   }
-
   return (
-    <div className="sidebar">
+    <div
+      className="sidebar"
+      // style={{ display: `${props.showMenu ? "block" : "none"}` }}
+    >
       <div className="sidebar-switch-org">
         <img src={SwitchOriganization} alt="switch-organization-icon" />
         <p>Switch Organization</p>

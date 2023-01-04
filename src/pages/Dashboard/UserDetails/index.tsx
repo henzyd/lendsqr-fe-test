@@ -49,9 +49,9 @@ const UserDetails = () => {
       {userData.map((item) => {
         return (
           <div className="user-details-main" key={item.id}>
-            <div className="user-details-main-top">
+            <div className="user-details-main-top" style={{ height: "100%" }}>
               {item.profile.avatar ? (
-                <figure className="profile-photo">
+                <figure className="profile-photo" style={{ height: "100%" }}>
                   <img src={item.profile.avatar} alt="profile-img" />
                 </figure>
               ) : (
@@ -76,7 +76,7 @@ const UserDetails = () => {
                   <img src={StarInactiveIcon} alt="star-inactive" />
                 </div>
               </div>
-              <span></span>
+              <span className="break"></span>
               <div className="amount-in-bank">
                 <h2>{`${item.profile.currency}${item.accountBalance}`}</h2>
                 <p>{item.profile.bvn}/Providus Bank</p>
